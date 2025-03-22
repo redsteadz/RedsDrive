@@ -20,7 +20,7 @@ jobs:
 
       - name: Copy .env .example files 
         shell: bash 
-        run: find . -type f -name ".env.example" -exec sh -c 'cp "$1" "${2}"' _ {} \;
+        run: find . -type f -name ".env.example" -exec sh -c 'cp "$1" "${1%.*}"' _ {} \;
 
       - name: Run lint
         run: npm run lint
